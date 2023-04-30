@@ -2,6 +2,7 @@
 
 <template>
   <div>
+    <TimeCard />
   </div>
 </template>
 
