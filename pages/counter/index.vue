@@ -24,8 +24,20 @@ const decrement = () => {
     <VisitorDisplay />
     <Toast />
     <div class="button-wrapper">
-      <Button @click="increment" severity="success" class="button">入構</Button>
-      <Button @click="decrement" severity="danger" class="button">退構</Button>
+      <Button
+        @click="increment"
+        severity="success"
+        label="入構"
+        class="button"
+        outlined
+      />
+      <Button
+        @click="decrement"
+        severity="danger"
+        label="退構"
+        class="button"
+        outlined
+      />
     </div>
   </div>
 </template>
@@ -37,7 +49,7 @@ const decrement = () => {
   margin-top: 20px;
   .button {
     font-size: 2.5rem;
-    padding: 20px;
+    width: min(45%, 400px);
   }
 }
 </style>
