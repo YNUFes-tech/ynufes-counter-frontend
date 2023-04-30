@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+useRouter().push('/counter')
 </script>
 
 <template>
