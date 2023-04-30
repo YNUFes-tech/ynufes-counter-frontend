@@ -4,11 +4,11 @@ const currentTimeToString = now.currentTimeToString
 </script>
 
 <template>
-  <p class="current-time">
-    {{ currentTimeToString(now.currentHour) }} :
-    {{ currentTimeToString(now.currentMinute) }} :
-    {{ currentTimeToString(now.currentSecond) }}
-  </p>
+    <p class="current-time">
+      {{ currentTimeToString(now.currentHour) }} :
+      {{ currentTimeToString(now.currentMinute) }} :
+      {{ currentTimeToString(now.currentSecond) }}
+    </p>
 </template>
 
 <style scoped lang="scss">
@@ -16,6 +16,6 @@ const currentTimeToString = now.currentTimeToString
   text-align: center;
   font-size: 3rem;
   font-weight: bold;
-  color: #fff;
+  color: #3b3b3b;
 }
 </style>
