@@ -21,6 +21,7 @@ const decrement = () => {
 <template>
   <div>
     <TimeCard />
+    <VisitorDisplay />
     <Toast />
     <div class="button-wrapper">
       <Button @click="increment" severity="success" class="button">入構</Button>
