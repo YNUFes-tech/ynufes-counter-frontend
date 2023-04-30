@@ -5,7 +5,9 @@ const currentTimeToString = now.currentTimeToString
 
 <template>
   <p class="current-time">
-    {{ currentTimeToString(now.currentHour) }} : {{currentTimeToString(now.currentMinute) }} : {{ currentTimeToString(now.currentSecond) }}
+    {{ currentTimeToString(now.currentHour) }} :
+    {{ currentTimeToString(now.currentMinute) }} :
+    {{ currentTimeToString(now.currentSecond) }}
   </p>
 </template>
 
@@ -14,6 +16,6 @@ const currentTimeToString = now.currentTimeToString
   text-align: center;
   font-size: 3rem;
   font-weight: bold;
-  color: #FFF;
+  color: #fff;
 }
 </style>
