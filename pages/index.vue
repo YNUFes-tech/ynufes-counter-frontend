@@ -1,9 +1,8 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+</script>
 
 <template>
-  <div>
-    Page: foo
-  </div>
+  <Button label="Submit" />
 </template>
 
 <style scoped></style>
