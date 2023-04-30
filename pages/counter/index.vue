@@ -3,18 +3,52 @@ import { useToast } from 'primevue/usetoast'
 const toast = useToast()
 
 const increment = () => {
-  toast.add({
-    severity: 'success',
-    summary: '入構しました',
-    life: 3000
-  })
+  useFetch(
+    'https://ynufes-visitor-counter.an.r.appspot.com/api/v1/count/entry',
+    {
+      method: 'POST'
+    }
+  )
+    .then((res) => {
+      toast.add({
+        severity: 'success',
+        summary: '+ 1',
+        detail: '入構しました' + new Date().toLocaleString(),
+        life: 5000
+      })
+    })
+    .catch((err) => {
+      toast.add({
+        severity: 'error',
+        summary: 'エラー',
+        detail: '入構に失敗しました' + new Date().toLocaleString(),
+        life: 5000
+      })
+    })
 }
 const decrement = () => {
-  toast.add({
-    severity: 'warn',
-    summary: '退構しました',
-    life: 3000
-  })
+  useFetch(
+    'https://ynufes-visitor-counter.an.r.appspot.com/api/v1/count/exit',
+    {
+      method: 'POST'
+    }
+  )
+    .then(() => {
+      toast.add({
+        severity: 'info',
+        summary: '- 1',
+        detail: '退構しました' + new Date().toLocaleString(),
+        life: 5000
+      })
+    })
+    .catch((err) => {
+      toast.add({
+        severity: 'error',
+        summary: 'エラー',
+        detail: '退構に失敗しました' + new Date().toLocaleString(),
+        life: 5000
+      })
+    })
 }
 </script>
 
@@ -22,7 +56,7 @@ const decrement = () => {
   <div>
     <TimeCard />
     <VisitorDisplay />
-    <Toast />
+    <Toast position="bottom-right" />
     <div class="button-wrapper">
       <Button
         @click="increment"
@@ -33,7 +67,7 @@ const decrement = () => {
       />
       <Button
         @click="decrement"
-        severity="danger"
+        severity="info"
         label="退構"
         class="button"
         outlined
