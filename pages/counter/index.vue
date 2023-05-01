@@ -4,12 +4,21 @@ const toast = useToast()
 
 const increment = () => {
   useFetch(
-    'https://ynufes-visitor-counter.an.r.appspot.com/api/v1/count/entry',
+    '/api/v1/count/entry',
     {
       method: 'POST'
     }
   )
     .then((res) => {
+      if (res.error.value) {
+        toast.add({
+          severity: 'error',
+          summary: 'エラー',
+          detail: '入構に失敗しました' + new Date().toLocaleString(),
+          life: 5000
+        })
+        return
+      }
       toast.add({
         severity: 'success',
         summary: '+ 1',
@@ -28,12 +37,21 @@ const increment = () => {
 }
 const decrement = () => {
   useFetch(
-    'https://ynufes-visitor-counter.an.r.appspot.com/api/v1/count/exit',
+    '/api/v1/count/exit',
     {
       method: 'POST'
     }
   )
-    .then(() => {
+    .then((res) => {
+      if (res.error.value) {
+        toast.add({
+          severity: 'error',
+          summary: 'エラー',
+          detail: '退構に失敗しました' + new Date().toLocaleString(),
+          life: 5000
+        })
+        return
+      }
       toast.add({
         severity: 'info',
         summary: '- 1',
