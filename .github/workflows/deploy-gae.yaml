@@ -19,6 +19,9 @@ jobs:
         with:
           node-version: 18
       - uses: actions/checkout@v2
+      - name: 'Generate .env'
+        run: |
+          echo "${{ secrets.ENV_CONTENTS }}" > .env
       - name: yarn install
         run: yarn install
       - name: yarn build
